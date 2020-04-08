@@ -1,6 +1,7 @@
 package com.super404.video.mapper;
 
 import com.super404.video.domain.Video;
+import com.super404.video.provider.VideoProvider;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
@@ -8,6 +9,7 @@ import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.UpdateProvider;
 
 import java.util.List;
 
@@ -25,7 +27,8 @@ public interface VideoMapper {
     @Select("SELECT * FROM video WHERE id = #{id}")
     Video findById(int id);
 
-    @Update("UPDATE video SET title=#{title} WHERE id =#{id}")
+    //@Update("UPDATE video SET title=#{title} WHERE id =#{id}")
+    @UpdateProvider(type = VideoProvider.class, method = "updateVideo")
     int update(Video video);
 
     @Delete("DELETE FROM video WHERE id =#{id}")
