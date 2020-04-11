@@ -1,6 +1,7 @@
 package com.super404.video.controller;
 
 import com.super404.video.config.WeChatConfig;
+import com.super404.video.domain.JsonData;
 import com.super404.video.mapper.VideoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,9 +19,9 @@ public class TestController {
     private WeChatConfig weChatConfig;
 
     @RequestMapping("test_config")
-    public String testConfig(){
+    public JsonData testConfig(){
         System.out.println(weChatConfig.getAppId());
-        return "hello world";
+        return JsonData.buildSuccess(weChatConfig.getAppId());
     }
 
     @Autowired
