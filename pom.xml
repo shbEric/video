@@ -51,6 +51,12 @@
 			<artifactId>pagehelper</artifactId>
 			<version>4.1.0</version>
 		</dependency>
+		<!-- JWT相关 -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
 		<!--默认就有的依赖-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
