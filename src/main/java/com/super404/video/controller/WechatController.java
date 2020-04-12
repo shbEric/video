@@ -2,6 +2,7 @@ package com.super404.video.controller;
 
 import com.super404.video.config.WeChatConfig;
 import com.super404.video.domain.JsonData;
+import com.super404.video.domain.User;
 import com.super404.video.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -46,7 +47,10 @@ public class WechatController {
     @GetMapping("/user/callback")
     public void wechatUserCallback(@RequestParam(value = "code", required = true) String code,
                                    String state, HttpServletResponse response){
-        userService.saveWeChatUser(code);
+        User user = userService.saveWeChatUser(code);
+        if (user != null){
+            //生成jwt
+        }
     }
 
 }
